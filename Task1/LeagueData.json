@@ -1,0 +1,186 @@
+{
+    "teams": [
+      {
+        "name": "Arsenal",
+        "position": 1,
+        "played": 33,
+        "won": 23,
+        "lost": 5,
+        "drawn": 5,
+        "goalDifference": 51,
+        "points": 74
+      },
+      {
+        "name": "Liverpool",
+        "position": 2,
+        "played": 33,
+        "won": 22,
+        "lost": 3,
+        "drawn": 8,
+        "goalDifference": 43,
+        "points": 74
+      }
+      ,
+      {
+        "name": "Manchester City",
+        "position": 3,
+        "played": 33,
+        "won": 22,
+        "lost": 3,
+        "drawn": 7,
+        "goalDifference": 44,
+        "points": 73
+      }
+      ,
+      {
+        "name": "Aston Villa",
+        "position": 4,
+        "played": 34,
+        "won": 20,
+        "lost": 8,
+        "drawn": 6,
+        "goalDifference": 21,
+        "points": 66
+      }
+      ,
+      {
+        "name": "Tottenham",
+        "position": 5,
+        "played": 32,
+        "won": 18,
+        "lost": 8,
+        "drawn": 6,
+        "goalDifference": 16,
+        "points": 60
+      }
+      ,
+      {
+        "name": "Newcastle",
+        "position": 6,
+        "played": 32,
+        "won": 15,
+        "lost": 12,
+        "drawn": 5,
+        "goalDifference": 17,
+        "points": 50
+      }
+      ,
+      {
+        "name": "Man United",
+        "position": 7,
+        "played": 32,
+        "won": 15,
+        "lost": 12,
+        "drawn": 5,
+        "goalDifference": -1,
+        "points": 50
+      }
+      ,
+      {
+        "name": "West Ham",
+        "position": 8,
+        "played": 34,
+        "won": 13,
+        "lost": 12,
+        "drawn": 9,
+        "goalDifference": -9,
+        "points": 48
+      }
+      ,
+      {
+        "name": "Chelsea",
+        "position": 9,
+        "played": 31,
+        "won": 13,
+        "lost": 10,
+        "drawn": 8,
+        "goalDifference": 9,
+        "points": 47
+      }
+      ,
+      {
+        "name": "Brighton",
+        "position": 10,
+        "played": 32,
+        "won": 11,
+        "lost": 10,
+        "drawn": 11,
+        "goalDifference": 2,
+        "points": 44
+      }
+    ],
+    "fixtures": [
+      {
+        "homeTeam": "Arsenal",
+        "awayTeam": "Liverpool",
+        "date": "2024-04-24",
+        "time": "15:00",
+        "result": "2-1"
+      },
+      {
+        "homeTeam": "Manchester City",
+        "awayTeam": "Chelsea",
+        "date": "2024-04-25",
+        "time": "18:00",
+        "result": "3-0"
+      }
+    ],
+    "topScorers": [
+      {
+        "name": "Erling Haaland",
+        "team": "Manchester City",
+        "goals": 25
+      },
+      {
+        "name": "Mohamed Salah",
+        "team": "Liverpool",
+        "goals": 20
+      },
+      {
+        "name": "Harry Kane",
+        "team": "Tottenham",
+        "goals": 17
+      },
+      {
+        "name": "Bruno Fernandes",
+        "team": "Man United",
+        "goals": 16
+      },
+      {
+        "name": "Dominic Calvert-Lewin",
+        "team": "Everton",
+        "goals": 15
+      },
+      {
+        "name": "Sadio Mane",
+        "team": "Liverpool",
+        "goals": 14
+      },
+      {
+        "name": "Jamie Vardy",
+        "team": "Leicester City",
+        "goals": 13
+      },
+      {
+        "name": "Raheem Sterling",
+        "team": "Manchester City",
+        "goals": 12
+      },
+      {
+        "name": "Patrick Bamford",
+        "team": "Leeds United",
+        "goals": 11
+      },
+      {
+        "name": "Wilfried Zaha",
+        "team": "Crystal Palace",
+        "goals": 10
+      },
+      {
+        "name": "Son Heung-min",
+        "team": "Tottenham",
+        "goals": 10
+      }
+    ]
+  }
+  
