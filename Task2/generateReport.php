@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Retrieve selected teams' data from the database
         $selectedTeamsData = [];
         foreach ($selectedTeams as $teamId) {
-            $stmt = $pdo->prepare("SELECT * FROM football_teams WHERE id = ?");
+            $stmt = $pdo->prepare("SELECT * FROM teams WHERE id = ?");
             $stmt->execute([$teamId]);
             $teamData = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($teamData) {

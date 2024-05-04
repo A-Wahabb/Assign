@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 // Retrieve teams data ordered by points achieved
-$stmt = $pdo->query("SELECT * FROM football_teams ORDER BY points ASC");
+$stmt = $pdo->query("SELECT * FROM teams ORDER BY points ASC");
 $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready( function () {
-            $('#teamTable').DataTable();
+            $('#teamFootballTable').DataTable();
         });
     </script>
 </head>
@@ -44,7 +44,7 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <main>
     <h3>Premier League Report</h3>
     <form action="generateReport.php" method="post">
-        <table id="teamTable">
+        <table id="teamFootballTable">
             <thead>
                 <tr>
                     <th><input type="checkbox" id="selectAll"></th>
