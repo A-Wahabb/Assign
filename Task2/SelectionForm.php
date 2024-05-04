@@ -44,6 +44,8 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <main>
     <h3>Premier League Report</h3>
     <form action="generateReport.php" method="post">
+        <input type="hidden" name="selectedTeams[]" value="all"> <!-- Add a hidden input for selecting all teams -->
+        <input type="submit" value="Generate Report"> <!-- This button will submit the form to generate the report -->
         <table id="teamReportTable">
             <thead>
                 <tr>
@@ -74,10 +76,7 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <form action="generateReport.php" method="post"> <!-- Add a new form for generating report -->
-        <input type="hidden" name="selectedTeams[]" value="all"> <!-- Add a hidden input for selecting all teams -->
-        <input type="submit" value="Generate Report"> <!-- This button will submit the form to generate the report -->
-    </form>
+       
     </form>
 </main>
 <footer>&copy; CSYM019 2024</footer>

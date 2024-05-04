@@ -69,20 +69,22 @@ if (isset($_GET['success']) && $_GET['success'] === 'true') {
     <form action="dataEntryForm.php" method="post">
         <label for="team_name">Team Name:</label><br>
         <input type="text" id="name" name="name" required><br>
+        <label for="goalDifference">Goal Difference:</label><br>
+        <input type="number" id="goalDifference" name="goalDifference" required><br>
         <label for="position">Position:</label><br>
         <input type="number" id="position" name="position" required><br>
         <label for="played">Played:</label><br>
         <input type="number" id="played" name="played" required><br>
         <label for="points">Points:</label><br>
         <input type="number" id="points" name="points" required><br>
+        <label for="draws">Draws:</label><br>
+        <input type="number" id="draws" name="draws" required><br>
         <label for="wins">Wins:</label><br>
         <input type="number" id="wins" name="wins" required><br>
         <label for="losses">Losses:</label><br>
         <input type="number" id="losses" name="losses" required><br>
-        <label for="draws">Draws:</label><br>
-        <input type="number" id="goalDifference" name="goalDifference" required><br>
-        <label for="goalDifference">Goal Difference:</label><br>
-        <input type="number" id="draws" name="draws" required><br><br>
+
+        
         <input type="submit" value="Add Team">
     </form>
 </main>
