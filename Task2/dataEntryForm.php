@@ -2,11 +2,11 @@
 session_start();
 
 // Include the database connection file
-require_once 'db_connection.php';
+require_once 'connection.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
-    header('Location: login.php');
+    header('Location: loginForm.php');
     exit();
 }
 

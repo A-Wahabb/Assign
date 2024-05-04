@@ -5,8 +5,8 @@ session_start();
 require_once 'connection.php';
 
 // Check if the user is logged in
-if (!isset($_SESSION['user'])) {
-    header('Location: signin.php');
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
     exit();
 }
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Retrieve selected teams' data from the database
         $selectedTeamsData = [];
         foreach ($selectedTeams as $teamId) {
-            $stmt = $pdo->prepare("SELECT * FROM teams WHERE id = ?");
+            $stmt = $pdo->prepare("SELECT * FROM football_teams WHERE id = ?");
             $stmt->execute([$teamId]);
             $teamData = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($teamData) {
@@ -56,27 +56,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>League Report</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Report</title>
+    <link rel="stylesheet" href="layout.css">
     <!-- Include Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <header>
-    <h3>League Report</h3>
+    <h3>CSYM019 - Premier League Results</h3>
 </header>
+<nav>
+    <ul>
+        <li><a href="./SelectionForm.php">Premier League Report</a></li>
+        <li><a href="./sampleEntryForm.php">Add New Football Team</a></li>
+        <li><a href="./logout.php">Logout</a></li>
+    </ul>
+</nav>
 <main>
-    <h4>Selected Teams Information</h4>
+    <h3>Report</h3>
     <?php if (isset($selectedTeamsData) && !empty($selectedTeamsData)) : ?>
+        <h4>Selected Teams Information</h4>
         <table>
             <thead>
                 <tr>
                     <th>Team Name</th>
                     <th>Position</th>
                     <th>Played</th>
+                    <th>Points</th>
                     <th>Wins</th>
                     <th>Losses</th>
                     <th>Draws</th>
+                    <th>Goal Difference</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,9 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <td><?php echo $team['name']; ?></td>
                         <td><?php echo $team['position']; ?></td>
                         <td><?php echo $team['played']; ?></td>
+                        <td><?php echo $team['points']; ?></td>
                         <td><?php echo $team['won']; ?></td>
                         <td><?php echo $team['lost']; ?></td>
                         <td><?php echo $team['drawn']; ?></td>
+                        <td><?php echo $team['goalDifference']; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -117,10 +129,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             });
         </script>
+
+        <!-- Bar chart comparing all selected teams -->
+        <?php if (count($selectedTeamsData) > 1) : ?>
+            <h4>Comparison of Selected Teams</h4>
+            <canvas id="teamsComparisonChart" width="400" height="400"></canvas>
+            <script>
+                var ctx2 = document.getElementById('teamsComparisonChart').getContext('2d');
+                var teamsComparisonChart = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Wins', 'Losses', 'Draws', 'Games Remaining'],
+                        datasets: [
+                            <?php foreach ($selectedTeamsData as $team) : ?>
+                            {
+                                label: '<?php echo $team['name']; ?>',
+                                data: [<?php echo $team['won']; ?>, <?php echo $team['lost']; ?>, <?php echo $team['drawn']; ?>, <?php echo (38 - $team['played']); ?>],
+                                backgroundColor: getRandomColor(),
+                                borderWidth: 1
+                            },
+                            <?php endforeach; ?>
+                        ]
+                    },
+                    options: {
+                        responsive: false,
+                        maintainAspectRatio: false,
+                        scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }
+                    }
+                });
+
+                // Function to generate random color for bar chart
+                function getRandomColor() {
+                    var letters = '0123456789ABCDEF';
+                    var color = '#';
+                    for (var i = 0; i < 6; i++) {
+                        color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    return color;
+                }
+            </script>
+        <?php endif; ?>
     <?php else : ?>
         <p>No teams selected.</p>
     <?php endif; ?>
 </main>
-<footer>&copy; CSYM019 2024 <?php echo date('Y'); ?></footer>
+<footer>&copy; CSYM019 2024</footer>
 </body>
 </html>
