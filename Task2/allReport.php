@@ -69,7 +69,7 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $team['won']; ?></td>
                         <td><?php echo $team['lost']; ?></td>
                         <td><?php echo $team['drawn']; ?></td>
-                        <td><?php echo $team['goalDifference']; ?></td>
+                        <td><?php echo $team['goal_diff']; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

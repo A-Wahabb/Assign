@@ -28,14 +28,14 @@ CREATE TABLE `teams` (
   `won` int(11) NOT NULL,
   `lost` int(11) NOT NULL,
   `drawn` int(11) NOT NULL,
-  `goalDifference` int(11) NOT NULL,
+  `goal_diff` int(11) NOT NULL,
   `points` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `teams` */
 
-insert  into `teams`(`id`,`name`,`position`,`played`,`won`,`lost`,`drawn`,`goalDifference`,`points`) values 
+insert  into `teams`(`id`,`name`,`position`,`played`,`won`,`lost`,`drawn`,`goal_diff`,`points`) values 
 (2,'Arsenal',1,33,23,5,5,51,74),
 (3,'Liverpool',2,33,22,3,8,43,74),
 (4,'Manchester City',3,33,22,3,7,44,73),

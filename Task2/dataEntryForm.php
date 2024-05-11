@@ -18,16 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $won = $_POST['wins'];
     $lost = $_POST['losses'];
     $drawn = $_POST['draws'];
-    $goalDifference = $_POST['goalDifference'];
+    $goal_diff = $_POST['goal_diff'];
     $played = $_POST['played'];
     $position = $_POST['position'];
 
     // Prepare SQL statement to insert data into the database
-    $stmt = $pdo->prepare("INSERT INTO teams (name, position, played, won, lost, drawn, goalDifference, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO teams (name, position, played, won, lost, drawn, goal_diff, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
     try {
         // Execute the SQL statement
-        $stmt->execute([$team_name, $position, $played, $won, $lost, $drawn, $goalDifference, $points]);
+        $stmt->execute([$team_name, $position, $played, $won, $lost, $drawn, $goal_diff, $points]);
         // Redirect to the same page with success parameter
         header('Location: dataEntryForm.php?success=true');
         exit();
@@ -69,8 +69,8 @@ if (isset($_GET['success']) && $_GET['success'] === 'true') {
     <form action="dataEntryForm.php" method="post">
         <label for="team_name">Team Name:</label><br>
         <input type="text" id="name" name="name" required><br>
-        <label for="goalDifference">Goal Difference:</label><br>
-        <input type="number" id="goalDifference" name="goalDifference" required><br>
+        <label for="goal_diff">Goal Difference:</label><br>
+        <input type="number" id="goal_diff" name="goal_diff" required><br>
         <label for="position">Position:</label><br>
         <input type="number" id="position" name="position" required><br>
         <label for="played">Played:</label><br>
