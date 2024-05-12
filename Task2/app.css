@@ -1,0 +1,219 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1,
+h3 {
+    font-size: 24px;
+}
+
+form,
+#login-container form {
+    display: grid;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+button,
+#gnrt_rept {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    border: 1px solid #ccc;
+}
+
+button,
+#gnrt_rept {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover,
+#gnrt_rept:hover {
+    background-color: #45a049;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.success {
+    color: #28a745;
+}
+
+.error,
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Specific Styles */
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    background-color: #e3dfdf;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+nav ul li a:hover {
+    background-color: #45a049;
+}
+
+main,
+.container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#teamReportTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#teamReportTable th,
+#teamReportTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#teamReportTable th {
+    background-color: #f2f2f2;
+}
+
+#teamReportTable th:first-child,
+#teamReportTable td:first-child {
+    text-align: left;
+}
+
+
+/* Additional CSS for Login Form */
+.main-login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#login-container form {
+    display: grid;
+    gap: 15px;
+}
+
+#login-container label {
+    font-weight: bold;
+}
+
+#login-container input[type="text"],
+#login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#login-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+#login-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Table styles */
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.team-table th,
+.team-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.team-table th {
+    background-color: #f2f2f2;
+}
+
+.team-table th:first-child,
+.team-table td:first-child {
+    text-align: left;
+}

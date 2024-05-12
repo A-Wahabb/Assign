@@ -58,8 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <title>Report</title>
     <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="app.css">
     <!-- Include Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </head>
 <body>
 <header>
@@ -68,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <nav>
     <ul>
         <li><a href="./SelectionForm.php">Premier League Report</a></li>
-        <li><a href="./sampleEntryForm.php">Add New Football Team</a></li>
+        <li><a href="./dataEntryForm.php">Add New Football Team</a></li>
         <li><a href="./logout.php">Logout</a></li>
     </ul>
 </nav>
@@ -76,34 +78,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h3>Report</h3>
     <?php if (isset($selectedTeamsData) && !empty($selectedTeamsData)) : ?>
         <h4>Selected Teams Information</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>Team Name</th>
-                    <th>Position</th>
-                    <th>Played</th>
-                    <th>Points</th>
-                    <th>Wins</th>
-                    <th>Losses</th>
-                    <th>Draws</th>
-                    <th>Goal Difference</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($selectedTeamsData as $team) : ?>
-                    <tr>
-                        <td><?php echo $team['name']; ?></td>
-                        <td><?php echo $team['position']; ?></td>
-                        <td><?php echo $team['played']; ?></td>
-                        <td><?php echo $team['points']; ?></td>
-                        <td><?php echo $team['won']; ?></td>
-                        <td><?php echo $team['lost']; ?></td>
-                        <td><?php echo $team['drawn']; ?></td>
-                        <td><?php echo $team['goal_diff']; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <table class="team-table">
+    <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Position</th>
+            <th>Played</th>
+            <th>Points</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Draws</th>
+            <th>Goal Difference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($selectedTeamsData as $team) : ?>
+            <tr>
+                <td><?php echo $team['name']; ?></td>
+                <td><?php echo $team['position']; ?></td>
+                <td><?php echo $team['played']; ?></td>
+                <td><?php echo $team['points']; ?></td>
+                <td><?php echo $team['won']; ?></td>
+                <td><?php echo $team['lost']; ?></td>
+                <td><?php echo $team['drawn']; ?></td>
+                <td><?php echo $team['goal_diff']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
         <!-- Pie chart showing the percentages of matches played -->
         <canvas id="matchesPlayedChart" width="400" height="400"></canvas>

@@ -1,19 +1,3 @@
-<?php
-session_start();
-
-// Include the database connection file
-require_once 'connection.php';
-
-// Check if the user is logged in
-if (!isset($_SESSION['username'])) {
-    header('Location: loginForm.php');
-    exit();
-}
-
-// Retrieve teams data ordered by points achieved
-$stmt = $pdo->query("SELECT * FROM teams ORDER BY points ASC");
-$teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +8,16 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- Include jQuery DataTables plugin -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    
+    <link rel="stylesheet" href="app.css">
     <script>
         $(document).ready( function () {
             $('#teamReportTable').DataTable();
         });
     </script>
+    <style>
+
+    </style>
 </head>
 <body>
 <header>
@@ -43,9 +32,21 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </nav>
 <main>
     <h3>Premier League Report</h3>
+    <?php
+        session_start();
+        require_once 'connection.php';
+
+        if (!isset($_SESSION['username'])) {
+            header('Location: loginForm.php');
+            exit();
+        }
+
+        $stmt = $pdo->query("SELECT * FROM teams ORDER BY points ASC");
+        $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
     <form action="generateReport.php" method="post">
         <input type="hidden" name="selectedTeams[]" value="all"> <!-- Add a hidden input for selecting all teams -->
-        <input type="submit" value="Generate Report"> <!-- This button will submit the form to generate the report -->
+        <input type="submit" id="gnrt_rept" value="Generate Report"> <!-- This button will submit the form to generate the report -->
         <table id="teamReportTable">
             <thead>
                 <tr>
@@ -76,7 +77,6 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </tbody>
         </table>
-       
     </form>
 </main>
 <footer>&copy; CSYM019 2024</footer>
