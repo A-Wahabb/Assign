@@ -31,15 +31,16 @@ function updateChampionshipTable() {
 
 // Function to update Top Scorers table
 function updateTopScorersTable() {
-  getData().then(data => {
+  fetchChampionshipData().then(data => {
     const tableBody = document.getElementById('championship-top-scorers-body');
+    console.log({ tableBody })
     tableBody.innerHTML = '';
 
     data.topScorers.forEach(player => {
       const row = document.createElement('tr');
       row.innerHTML = `
         <td>${player.name}</td>
-        <td>${player.club}</td>
+        <td>${player.team}</td>
         <td>${player.goals}</td>
       `;
       tableBody.appendChild(row);
